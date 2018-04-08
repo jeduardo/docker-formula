@@ -1,0 +1,11 @@
+# vim: ft=jinja sts=2 ts=2 sw=2 et ai
+
+# Example pillar for docker
+docker:
+  package:
+    name: docker-ce
+    version: "18.03.0~ce-0~debian"
+  # Environment variables for the docker process
+  # Added a different storage driver to the docker daemon
+  environment:
+    DOCKER_OPTS: "-H fd:// --storage-driver devicemapper"

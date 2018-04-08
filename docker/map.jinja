@@ -1,0 +1,5 @@
+# vim: ft=jinja sts=2 ts=2 sw=2 et ai
+
+{% import_yaml slspath + "/defaults.yaml" as defaults %}
+
+{% set docker = salt['pillar.get']('docker', default=defaults.docker, merge=True) %}

@@ -1,0 +1,6 @@
+.cache/*
+.kitchen/*
+.pytest_cache/*
+vendor/*
+*.xml
+*.pyc
