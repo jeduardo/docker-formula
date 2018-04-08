@@ -42,7 +42,6 @@ Requirements
 * Docker
 
 ::
-
     gem install bundler
     bundle install
     kitchen test
