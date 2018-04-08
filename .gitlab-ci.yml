@@ -6,9 +6,8 @@ test:
   script:
     - 'echo gem: --no-document > $HOME/.gemrc'
     - apk update
-    - apk add build-base git libffi-dev ruby-dev ruby-bundler
+    - apk add --update build-base git libffi-dev ruby-dev ruby-bundler python python-dev py-pip 
     - gem install kitchen-docker kitchen-inspec berkshelf
-    - apk add --update python python-dev py-pip build-base
     - bundler install
     - pip install -r requirements.txt
     - kitchen verify
