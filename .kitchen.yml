@@ -10,13 +10,6 @@ provisioner:
   # No need for chef as we're not using busser
   require_chef: false
   formula: docker
-  pillars-from-docker:
-    docker.sls: pillar.example
-  pillars:
-    top.sls:
-      base:
-        '*':
-          - docker
   state_top:
     base:
       '*':
@@ -24,14 +17,20 @@ provisioner:
 
 platforms:
   - name: debian-9
+    driver:
+      run_command: /bin/systemd
 
 suites:
-  - name: docker
+  - name: default
     provisioner:
-      state_top:
+    pillars-from-files:
+      docker.sls: pillar.example
+    pillars:
+      top.sls:
         base:
           '*':
             - docker
+
 
 verifier:
   name: shell
