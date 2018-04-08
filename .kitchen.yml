@@ -31,7 +31,6 @@ suites:
           '*':
             - docker
 
-
 verifier:
   name: shell
   remote_exec: false
