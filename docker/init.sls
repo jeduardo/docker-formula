@@ -18,7 +18,12 @@ deploy docker repository:
 deploy docker daemon:
   pkg.installed:
     - name: {{ docker.package.name }}
+    {%- if docker.package.version == 'latest' %}
+    {# Do not specify a version and make sure the repository is refreshed #}
+    - refresh: True
+    {%- else %}
     - version: "{{ docker.package.version }}"
+    {%- endif %}
     - require:
       - pkgrepo: deploy docker repository
 
